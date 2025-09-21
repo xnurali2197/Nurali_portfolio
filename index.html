@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khusinov Nurali - Backend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-bar {
+            transition: width 2s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo/Name -->
+                <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    Khusinov Nurali
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">About</a>
+                    <a href="#skills"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
+                    <a href="#projects"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Projects</a>
+                    <a href="#team"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Team</a>
+                    <a href="#contact"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Connect</a>
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle"
+                        class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle"
+                        class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden py-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-4">
+                    <a href="#about"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">About</a>
+                    <a href="#skills"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
+                    <a href="#projects"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Projects</a>
+                    <a href="#team"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Team</a>
+                    <a href="#contact"
+                        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Connect</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.6) 0%, rgba(147, 51, 234, 0.6) 100%), url('attached_assets/stock_images/computer_screen_show_6166ad48.jpg'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+                Khusinov Nurali
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-light mb-8 animate-slide-up" style="animation-delay: 0.2s;">
+                Backend Developer
+            </h2>
+            <div class="text-xl md:text-2xl mb-12 h-8 animate-slide-up" style="animation-delay: 0.4s;">
+                <span id="typingText" class="typing-text"></span>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.6s;">
+                <a href="#contact"
+                    class="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors duration-300 transform hover:scale-105">
+                    Hire Me
+                </a>
+                <a href="#projects"
+                    class="px-8 py-3 border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                    View Projects
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce-slow">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 fade-in-section">About Me</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto fade-in-section"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image Section -->
+                <div class="text-center md:text-left fade-in-section">
+                    <div
+                        class="w-64 h-64 mx-auto md:mx-0 mb-8 rounded-full overflow-hidden shadow-lg border-4 border-blue-600">
+                        <img src="attached_assets/stock_images/Nurali.jpg" alt="Nurali's photo"
+                            class="w-full h-full object-cover rounded-full">
+                    </div>
+                </div>
+
+                <!-- Text Section -->
+                <div class="fade-in-section">
+                    <h3 class="text-2xl font-semibold mb-6">Hello, I'm Khusinov Nurali</h3>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        I am a passionate Backend Developer with extensive knowledge in SQL, Python, JavaScript,
+                        HTML, Flask, and other modern technologies. I love creating innovative solutions and bringing
+                        ideas to life through clean, efficient code.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        With a strong foundation in both front-end and back-end development, I enjoy working on
+                        challenging projects that push the boundaries of web development.
+                    </p>
+                    <a href="javascript:void(0)" onclick="alert('CV download will be available soon!')"
+                        class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-300 transform hover:scale-105">
+                        <i class="fas fa-download mr-2"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 fade-in-section">Skills</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto fade-in-section"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- SQL -->
+                <div class="skill-item fade-in-section">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-database text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold">SQL</h3>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div class="skill-bar bg-blue-600 h-3 rounded-full" data-width="90"></div>
+                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">90%</span>
+                </div>
+
+                <!-- Python -->
+                <div class="skill-item fade-in-section">
+                    <div class="flex items-center mb-4">
+                        <i class="devicon-python-plain text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold">Python</h3>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div class="skill-bar bg-blue-600 h-3 rounded-full" data-width="85"></div>
+                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">85%</span>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-item fade-in-section">
+                    <div class="flex items-center mb-4">
+                        <i class="devicon-django-plain text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold">Django</h3>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div class="skill-bar bg-blue-600 h-3 rounded-full" data-width="80"></div>
+                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">80%</span>
+                </div>
+
+                <!-- HTML -->
+                <div class="skill-item fade-in-section">
+                    <div class="flex items-center mb-4">
+                        <i class="devicon-html5-plain text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold">HTML</h3>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div class="skill-bar bg-blue-600 h-3 rounded-full" data-width="95"></div>
+                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">95%</span>
+                </div>
+
+                <!-- CSS -->
+                <div class="skill-item fade-in-section">
+                    <div class="flex items-center mb-4">
+                        <i class="devicon-css3-plain text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold">CSS</h3>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div class="skill-bar bg-blue-600 h-3 rounded-full" data-width="90"></div>
+                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">90%</span>
+                </div>
+
+                <!-- Flask -->
+                <div class="skill-item fade-in-section">
+                    <div class="flex items-center mb-4">
+                        <i class="devicon-flask-original text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold">Flask</h3>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div class="skill-bar bg-blue-600 h-3 rounded-full" data-width="75"></div>
+                    </div>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">75%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 fade-in-section">Projects</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto fade-in-section"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden card-hover transition-all duration-300 hover:scale-105 fade-in-section">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-code text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">E-Commerce Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A backend e-commerce solution built with Flask, PostgreSQL, and JavaScript. Features
+                            include user authentication, payment integration, and admin dashboard.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>
+                                GitHub
+                            </a>
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden card-hover transition-all duration-300 hover:scale-105 fade-in-section">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-database text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Data Analytics Dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Advanced SQL database solution with Python integration for data analysis, reporting, and
+                            real-time visualization using Chart.js.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>
+                                GitHub
+                            </a>
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden card-hover transition-all duration-300 hover:scale-105 fade-in-section">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Task Management App</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Mobile-first responsive task management application with modern UI/UX principles,
+                            drag-and-drop functionality, and team collaboration features.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>
+                                GitHub
+                            </a>
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden card-hover transition-all duration-300 hover:scale-105 fade-in-section">
+                    <div class="h-48 bg-gradient-to-r from-red-500 to-orange-600 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Financial Tracker</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Personal finance management system with expense tracking, budget planning, and investment
+                            portfolio analysis using Python and SQLite.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>
+                                GitHub
+                            </a>
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden card-hover transition-all duration-300 hover:scale-105 fade-in-section">
+                    <div class="h-48 bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">AI Chatbot Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Intelligent chatbot platform built with Python, Natural Language Processing, and machine
+                            learning algorithms for automated customer support.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>
+                                GitHub
+                            </a>
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden card-hover transition-all duration-300 hover:scale-105 fade-in-section">
+                    <div class="h-48 bg-gradient-to-r from-teal-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-cloud text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Cloud Storage Solution</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Secure cloud storage platform with file encryption, user management, and API integration.
+                            Built with Flask, AWS S3, and PostgreSQL.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>
+                                GitHub
+                            </a>
+                            <a href="javascript:void(0)"
+                                class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 fade-in-section">My Backenders Team</h2>
+                <div class="w-32 h-1 bg-blue-600 mx-auto fade-in-section"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="text-center fade-in-section">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden shadow-lg border-4 border-blue-600">
+                        <img src="attached_assets/stock_images/photo_2025-09-21_11-18-18.jpg" alt=""
+                            class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Azamat-teacher</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">Backend Developer</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Our Senior Architect and teacher. Specializes in Python, SQL, Django, C#, C++, and more. 5+
+                        years experience in creating robust backend systems.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="text-center fade-in-section">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden shadow-lg border-4 border-blue-600">
+                        <img src="attached_assets/stock_images/Maksim.jpg" alt="Maxim"
+                            class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Maxim</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">Backend Developer</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Specializes in Python, Django, Flask, SQL, and FastAPI. Focuses on scalable Python development
+                        and database optimization.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="text-center fade-in-section">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden shadow-lg border-4 border-blue-600">
+                        <img src="attached_assets/stock_images/Bobur.jpg" alt="Bobur"
+                            class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Bobur</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">Backend Developer</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Specializes in Python, Django, SQL and FastAPI development. Focuses on scalable Python
+                        development and database optimization.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="text-center fade-in-section">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden shadow-lg border-4 border-blue-600">
+                        <img src="attached_assets/stock_images/Saidboy.jpg" alt="Sayidboy"
+                            class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Sayidboy</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">Backend Developer</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Specializes in Python, SQL, Django, Flask and FastAPI. Focuses on scalable Python development
+                        and database optimization. He is nearly Senior level in these technologies.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="text-center fade-in-section">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden shadow-lg border-4 border-blue-600">
+                        <img src="attached_assets/stock_images/Hamrozbek.jpg" alt="Hamrozbek"
+                            class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Hamrozbek</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">Backend Developer</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Specializes in Python, Django, SQL and FastAPI development. Focuses on scalable Python
+                        development and database optimization.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="text-center fade-in-section">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden shadow-lg border-4 border-blue-600">
+                        <img src="attached_assets/stock_images/Mansurbek.jpg" alt="Mansurbek"
+                            class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Mansurbek</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2">QA Backend Developer</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Specializes in automated testing, performance testing, and API testing. Focuses on ensuring the
+                        quality and reliability of backend services.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="link" target="_blank"
+                            class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 fade-in-section">Connect with Me</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto fade-in-section"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mt-6 fade-in-section">
+                    Let's connect! Follow me on social media to stay updated with my work and projects.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Social Media Buttons -->
+                <div class="grid md:grid-cols-3 gap-8 fade-in-section">
+                    <!-- Telegram Button -->
+                    <a href="https://t.me/khusinov7" target="_blank" rel="noopener noreferrer"
+                        class="flex flex-col items-center p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group">
+                        <div
+                            class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fab fa-telegram text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Telegram</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">Message me directly on Telegram for
+                            quick communication</p>
+                    </a>
+
+                    <!-- Instagram Button -->
+                    <a href="https://instagram.com/khusinov07" target="_blank" rel="noopener noreferrer"
+                        class="flex flex-col items-center p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4 group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                            <i class="fab fa-instagram text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Instagram</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">Follow my journey and behind-the-scenes
+                            content</p>
+                    </a>
+
+                    <!-- GitHub Button -->
+                    <a href="https://github.com/Nurali-developer" target="_blank" rel="noopener noreferrer"
+                        class="flex flex-col items-center p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group">
+                        <div
+                            class="w-20 h-20 bg-gray-800 dark:bg-gray-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-gray-900 dark:group-hover:bg-gray-500 transition-colors duration-300">
+                            <i class="fab fa-github text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">GitHub</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center">Explore my code repositories and open
+                            source projects</p>
+                    </a>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="text-center mt-12 fade-in-section">
+                    <p class="text-lg text-gray-600 dark:text-gray-300">
+                        I'm always open to discussing new opportunities and interesting projects!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Khusinov Nurali</h3>
+                    <p class="text-gray-400 mb-4">
+                        Backend Developer passionate about creating innovative solutions.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a>
+                        <a href="#skills"
+                            class="text-gray-400 hover:text-white transition-colors duration-300">Skills</a>
+                        <a href="#projects"
+                            class="text-gray-400 hover:text-white transition-colors duration-300">Projects</a>
+                        <a href="#team" class="text-gray-400 hover:text-white transition-colors duration-300">Team</a>
+                        <a href="#contact"
+                            class="text-gray-400 hover:text-white transition-colors duration-300">Connect</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Khusinov Nurali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
